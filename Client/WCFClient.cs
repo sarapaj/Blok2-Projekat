@@ -17,11 +17,11 @@ namespace Client
             factory = this.CreateChannel();
         }
 
-        public void ConnectLocal()
+        public void Read()
         {
             try
             {
-                factory.ConnectLocal();
+                factory.Read();
                 Console.WriteLine("Read() allowed.");
             }
             catch (Exception e)
@@ -39,5 +39,57 @@ namespace Client
 
             this.Close();
         }
-    }
+
+		public void Count()
+		{
+			try
+			{
+				factory.Count();
+				Console.WriteLine("Count() allowed.");
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Error while trying to Count(). {0}", e.Message);
+			}
+		}
+
+		public void Update()
+		{
+			try
+			{
+				factory.Update();
+				Console.WriteLine("Update() allowed.");
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Error while trying to Update(). {0}", e.Message);
+			}
+		}
+
+		public void AddEntity()
+		{
+			try
+			{
+				factory.AddEntity();
+				Console.WriteLine("AddEntity() allowed.");
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Error while trying to AddEntity(). {0}", e.Message);
+			}
+		}
+
+		public void RemoveEntity()
+		{
+			try
+			{
+				factory.RemoveEntity();
+				Console.WriteLine("RemoveEntity() allowed.");
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
+			}
+		}
+	}
 }

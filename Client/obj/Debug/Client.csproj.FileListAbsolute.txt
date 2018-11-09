@@ -1,0 +1,9 @@
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Client\bin\Debug\Client.exe.config
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Client\bin\Debug\Client.exe
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Client\bin\Debug\Client.pdb
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Client\bin\Debug\Common.dll
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Client\bin\Debug\Common.pdb
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Client\obj\Debug\Client.exe
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Client\obj\Debug\Client.pdb

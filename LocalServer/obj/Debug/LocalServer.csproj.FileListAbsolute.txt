@@ -1,0 +1,9 @@
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\LocalServer\bin\Debug\LocalServer.exe.config
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\LocalServer\bin\Debug\LocalServer.exe
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\LocalServer\bin\Debug\LocalServer.pdb
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\LocalServer\bin\Debug\Common.dll
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\LocalServer\bin\Debug\Common.pdb
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\LocalServer\obj\Debug\LocalServer.csprojResolveAssemblyReference.cache
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\LocalServer\obj\Debug\LocalServer.csproj.CoreCompileInputs.cache
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\LocalServer\obj\Debug\LocalServer.exe
+C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\LocalServer\obj\Debug\LocalServer.pdb

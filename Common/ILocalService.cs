@@ -11,6 +11,18 @@ namespace Common
     public interface ILocalService
     {
         [OperationContract]
-        void ConnectLocal();
-    }
+        void Read();
+
+		[OperationContract]
+		void Count();
+
+		[OperationContract]
+		void Update();
+
+		[OperationContract]
+		void AddEntity();
+
+		[OperationContract]
+		void RemoveEntity();
+	}
 }
