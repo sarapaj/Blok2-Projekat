@@ -16,12 +16,12 @@ namespace LocalServer
             // communication with main server
             NetTcpBinding serverBinding = new NetTcpBinding();
             string serverAddress = "net.tcp://localhost:9001/MainService";
-
+			
             using (WCFLocalServer proxy = new WCFLocalServer(serverBinding, serverAddress))
             {
                 //proxy.Read("Visnja", "Visnja.txt");
+				//proxy.InitializeList();
             }
-
 
             // communication with client
             NetTcpBinding binding = new NetTcpBinding();

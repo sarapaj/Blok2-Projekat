@@ -13,7 +13,10 @@ namespace Server
 	{
 		public void SerializeObject<T>(T serializableObject, string fileName)
 		{
-			if (serializableObject == null) { return; }
+			if (serializableObject == null)
+			{
+				return;
+			}
 			try
 			{
 				XmlDocument xmlDocument = new XmlDocument();
@@ -27,8 +30,10 @@ namespace Server
 					stream.Close();
 				}
 			}
-			catch (Exception)
-			{ }
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}
 		}
 
 

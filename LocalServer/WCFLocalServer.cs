@@ -17,7 +17,12 @@ namespace LocalServer
             factory = this.CreateChannel();
         }
 
-        public void Read(string username, string fileName)
+		public List<Entity> InitializeList(int region1, int region2)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Read(string username, string fileName)
         {
             throw new NotImplementedException();
         }
