@@ -13,7 +13,8 @@ namespace Common
         [OperationContract]
         void Read(string username, string fileName);
 
-        
+		[OperationContract]
+		List<Entity> InitializeList(int region1, int region2);
 
-    }
+	}
 }

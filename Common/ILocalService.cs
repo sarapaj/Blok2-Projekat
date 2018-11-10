@@ -11,18 +11,18 @@ namespace Common
     public interface ILocalService
     {
         [OperationContract]
-        void Read();
+		List<Entity> Read();
 
 		[OperationContract]
-		void Count();
+		double CountAvg(int region);
 
 		[OperationContract]
-		void Update();
+		bool Update(int region, int month, int value);
 
 		[OperationContract]
-		void AddEntity();
+		bool AddEntity(Entity entity);
 
 		[OperationContract]
-		void RemoveEntity();
+		bool RemoveEntity(Entity entity);
 	}
 }

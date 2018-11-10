@@ -10,41 +10,77 @@ namespace LocalServer
 {
     class LocalService : ILocalService
     {
+		//List<Entity> Entities = new List<Entity>()
+		//{
+		//	new Entity(1,1,"Novi Sad",DateTime.Now,3434),
+		//	new Entity(2,2,"Novi Sad",DateTime.Now,3489),
+		//	new Entity(3,3,"Novi Sad",DateTime.Now,4645)
+		//};
 
-		[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		[PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
-		[PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
-		public void Read()
+		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+		//[PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
+		//[PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
+		public List<Entity> Read()
 		{
-			Console.WriteLine("Usao u metodu Read()");
+			return Program.MyEntities;
 		}
 
-		[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		[PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
-		[PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
-		public void Count()
+		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+		//[PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
+		//[PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
+		public double CountAvg(int region)
 		{
-			Console.WriteLine("Usao u metodu Count()");
+			List<int> temp = new List<int>();
+
+			foreach (var item in Program.MyEntities)
+			{
+				if (item.Region == region)
+				{
+					temp.Add(item.Consumption);
+				}
+			}
+
+			return temp.Average();
 		}
 
-		[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		[PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
-		public void Update()
+		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+		//[PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
+		public bool Update(int region, int month, int value) // prosledjujemo redni broj meseca 1-12
 		{
-			Console.WriteLine("Usao u metodu Update()");
+			foreach (var item in Program.MyEntities)
+			{
+				if (item.Region == region && item.Date.Month == month)
+				{
+					item.Consumption = value;
+					return true;
+				}
+			}
+
+			return false;
 		}
 
-		[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		public void AddEntity()
+	//	[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+		public bool AddEntity(Entity entity)
 		{
-			Console.WriteLine("Usao u metodu AddEntity()");
+			if (!Program.MyEntities.Contains(entity))
+			{
+				Program.MyEntities.Add(entity);
+				return true;
+			}
 
+			return false;
 		}
 
-		[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		public void RemoveEntity()
+		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+		public bool RemoveEntity(Entity entity)
 		{
-			Console.WriteLine("Usao u metodu RemoveEntity()");
+			if (!Program.MyEntities.Contains(entity))
+			{
+				Program.MyEntities.Remove(entity);
+				return true;
+			}
+
+			return false;
 
 		}
 	}

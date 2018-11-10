@@ -17,79 +17,84 @@ namespace Client
             factory = this.CreateChannel();
         }
 
-        public void Read()
-        {
-            try
-            {
-                factory.Read();
-                Console.WriteLine("Read() allowed.");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error while trying to Read(). {0}", e.Message);
-            }
-        }
-
-        public void Dispose()
-        {
-            if (factory != null)
-            {
-                factory = null;
-            }
-
-            this.Close();
-        }
-
-		public void Count()
+		public List<Entity> Read()
 		{
+			List<Entity> temp = new List<Entity>();
 			try
 			{
-				factory.Count();
-				Console.WriteLine("Count() allowed.");
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine("Error while trying to Count(). {0}", e.Message);
-			}
-		}
-
-		public void Update()
-		{
-			try
-			{
-				factory.Update();
-				Console.WriteLine("Update() allowed.");
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine("Error while trying to Update(). {0}", e.Message);
-			}
-		}
-
-		public void AddEntity()
-		{
-			try
-			{
-				factory.AddEntity();
-				Console.WriteLine("AddEntity() allowed.");
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine("Error while trying to AddEntity(). {0}", e.Message);
-			}
-		}
-
-		public void RemoveEntity()
-		{
-			try
-			{
-				factory.RemoveEntity();
+				temp = factory.Read();
 				Console.WriteLine("RemoveEntity() allowed.");
 			}
 			catch (Exception e)
 			{
 				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
 			}
+
+			return temp;
+		}
+
+		public double CountAvg(int region)
+		{
+			double temp = 0;
+			try
+			{
+				temp = factory.CountAvg(region);
+				Console.WriteLine("RemoveEntity() allowed.");
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
+			}
+
+			return temp;
+		}
+
+		public bool Update(int region, int month, int value)
+		{
+			bool temp = false;
+			try
+			{
+				temp = factory.Update(region,month, value);
+				Console.WriteLine("RemoveEntity() allowed.");
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
+			}
+
+			return temp;
+		}
+
+		public bool AddEntity(Entity entity)
+		{
+			bool temp = false;
+			try
+			{
+				temp = factory.AddEntity(entity);
+				Console.WriteLine("RemoveEntity() allowed.");
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
+			}
+
+			return temp;
+		}
+
+		public bool RemoveEntity(Entity entity)
+		{
+			bool temp = false;
+			try
+			{
+				temp = factory.RemoveEntity(entity);
+				Console.WriteLine("RemoveEntity() allowed.");
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
+			}
+
+			return temp;
 		}
 	}
 }
