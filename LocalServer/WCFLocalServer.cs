@@ -46,10 +46,5 @@ namespace LocalServer
 				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
 			}
 		}
-
-		public void Read(string username, string fileName)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

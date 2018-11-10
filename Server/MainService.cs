@@ -27,11 +27,6 @@ namespace Server
 			return ret;
 		}
 
-		public void Read(string username, string fileName)
-        {
-            throw new NotImplementedException();
-        }
-
 		public void UpdateDB(List<Entity> lista, int region1, int region2)
 		{
 			List<Entity> tempList = data.DeSerializeObject<List<Entity>>("db.xml");
