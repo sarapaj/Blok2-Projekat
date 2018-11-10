@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace LocalServer
 {
@@ -32,13 +33,13 @@ namespace LocalServer
 			binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Windows;
 
 			ServiceHost host = new ServiceHost(typeof(LocalService));
+
+
             host.AddServiceEndpoint(typeof(ILocalService), binding, clientAddress);
-            //host.Authorization.ServiceAuthorizationManager = new MyAuthorizationManager();
 
             host.Description.Behaviors.Remove(typeof(ServiceDebugBehavior));
             host.Description.Behaviors.Add(new ServiceDebugBehavior() { IncludeExceptionDetailInFaults = true });
-
-
+            
             host.Open();
             Console.WriteLine("WCFService is opened. Press <enter> to finish...");
             Console.ReadLine();
