@@ -19,7 +19,19 @@ namespace LocalServer
 
 		public List<Entity> InitializeList(int region1, int region2)
 		{
-			throw new NotImplementedException();
+			List<Entity> temp = new List<Entity>();
+
+			try
+			{
+				temp = factory.InitializeList(region1, region2);
+				Console.WriteLine("Initialize() allowed.");
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
+			}
+
+			return temp;
 		}
 
 		public void Read(string username, string fileName)

@@ -33,29 +33,7 @@ namespace Client
 					Console.WriteLine();
 				}
 
-				if (proxy.Update(1, 11, 345))
-				{
-					Console.WriteLine("Uspesna izmena");
-				}
-				else
-				{
-					Console.WriteLine("Neuspesna izmena");
-				}
-
-				Console.WriteLine("Odaberite id za brisanje");
-				string temp = Console.ReadLine();
-				int id=0;
-				Int32.TryParse(temp, out id);
-
-				if (proxy.RemoveEntity(Entities.Find(x => x.Id == id)))
-				{
-					Console.WriteLine("Uspesno brisanje");
-				}
-				else
-				{
-					Console.WriteLine("Neuspesno brisanje");
-				}
-
+			
 			}
 
 			Console.ReadLine();

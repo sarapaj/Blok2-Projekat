@@ -10,19 +10,19 @@ namespace LocalServer
 {
     class LocalService : ILocalService
     {
-		List<Entity> Entities = new List<Entity>()
-		{
-			new Entity(1,1,"Novi Sad",DateTime.Now,3434),
-			new Entity(2,2,"Novi Sad",DateTime.Now,3489),
-			new Entity(3,3,"Novi Sad",DateTime.Now,4645)
-		};
+		//List<Entity> Entities = new List<Entity>()
+		//{
+		//	new Entity(1,1,"Novi Sad",DateTime.Now,3434),
+		//	new Entity(2,2,"Novi Sad",DateTime.Now,3489),
+		//	new Entity(3,3,"Novi Sad",DateTime.Now,4645)
+		//};
 
 		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
 		//[PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
 		//[PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
 		public List<Entity> Read()
 		{
-			return Entities;
+			return Program.MyEntities;
 		}
 
 		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
@@ -32,7 +32,7 @@ namespace LocalServer
 		{
 			List<int> temp = new List<int>();
 
-			foreach (var item in Entities)
+			foreach (var item in Program.MyEntities)
 			{
 				if (item.Region == region)
 				{
@@ -47,7 +47,7 @@ namespace LocalServer
 		//[PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
 		public bool Update(int region, int month, int value) // prosledjujemo redni broj meseca 1-12
 		{
-			foreach (var item in Entities)
+			foreach (var item in Program.MyEntities)
 			{
 				if (item.Region == region && item.Date.Month == month)
 				{
@@ -62,9 +62,9 @@ namespace LocalServer
 	//	[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
 		public bool AddEntity(Entity entity)
 		{
-			if (!Entities.Contains(entity))
+			if (!Program.MyEntities.Contains(entity))
 			{
-				Entities.Add(entity);
+				Program.MyEntities.Add(entity);
 				return true;
 			}
 
@@ -74,9 +74,9 @@ namespace LocalServer
 		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
 		public bool RemoveEntity(Entity entity)
 		{
-			if (!Entities.Contains(entity))
+			if (!Program.MyEntities.Contains(entity))
 			{
-				Entities.Remove(entity);
+				Program.MyEntities.Remove(entity);
 				return true;
 			}
 
