@@ -12,7 +12,7 @@ namespace Client
 		static void Main(string[] args)
 		{
 			NetTcpBinding binding = new NetTcpBinding();
-			string address = "net.tcp://localhost:9000/LocalService";
+			string address = "net.tcp://localhost:9008/LocalService";
 
 			binding.Security.Mode = SecurityMode.Transport;
 			binding.Security.Transport.ProtectionLevel = System.Net.Security.ProtectionLevel.EncryptAndSign;
@@ -33,11 +33,19 @@ namespace Client
 					Console.WriteLine();
 				}
 
-			
+				Entity entity = new Entity
+				{
+					Id = 10,
+					City = "Novi Sad",
+					Consumption = 900009,
+					Date = DateTime.Now,
+					Region = 1
+				};
+
+				proxy.AddEntity(entity);
 			}
 
 			Console.ReadLine();
 		}
 	}
-
 }

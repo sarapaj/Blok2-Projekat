@@ -17,7 +17,7 @@ namespace Common
 		double CountAvg(int region);
 
 		[OperationContract]
-		bool Update(int region, int month, int value);
+		bool Update(int region, int month, int value, int id);
 
 		[OperationContract]
 		bool AddEntity(Entity entity);

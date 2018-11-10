@@ -49,12 +49,12 @@ namespace Client
 			return temp;
 		}
 
-		public bool Update(int region, int month, int value)
+		public bool Update(int region, int month, int value, int id)
 		{
 			bool temp = false;
 			try
 			{
-				temp = factory.Update(region,month, value);
+				temp = factory.Update(region,month, value, id);
 				Console.WriteLine("RemoveEntity() allowed.");
 			}
 			catch (Exception e)
