@@ -4,3 +4,8 @@ C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Common\obj\Debug\Common.csprojRe
 C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Common\obj\Debug\Common.dll
 C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Common\obj\Debug\Common.pdb
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Common\bin\Debug\Common.dll
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Common\bin\Debug\Common.pdb
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Common\obj\Debug\Common.dll
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Common\obj\Debug\Common.pdb
