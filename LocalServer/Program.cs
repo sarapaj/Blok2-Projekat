@@ -23,13 +23,16 @@ namespace LocalServer
             }
 
 
-
             // communication with client
-            NetTcpBinding clientBinding = new NetTcpBinding();
+            NetTcpBinding binding = new NetTcpBinding();
             string clientAddress = "net.tcp://localhost:9000/LocalService";
+			binding.Security.Mode = SecurityMode.Transport;
 
-            ServiceHost host = new ServiceHost(typeof(LocalService));
-            host.AddServiceEndpoint(typeof(ILocalService), clientBinding, clientAddress);
+			binding.Security.Transport.ProtectionLevel = System.Net.Security.ProtectionLevel.EncryptAndSign;
+			binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Windows;
+
+			ServiceHost host = new ServiceHost(typeof(LocalService));
+            host.AddServiceEndpoint(typeof(ILocalService), binding, clientAddress);
             //host.Authorization.ServiceAuthorizationManager = new MyAuthorizationManager();
 
             host.Description.Behaviors.Remove(typeof(ServiceDebugBehavior));
