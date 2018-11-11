@@ -42,10 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audit.cs" />
+    <Compile Include="AuditEvents.cs" />
+    <Compile Include="AuditEventsFile.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuditEventsFile.resx</DependentUpon>
+    </Compile>
     <Compile Include="Entity.cs" />
     <Compile Include="ILocalService.cs" />
     <Compile Include="IMainService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AuditEventsFile.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AuditEventsFile.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

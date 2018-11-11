@@ -46,6 +46,9 @@ namespace LocalServer
 
 			ServiceHost host = new ServiceHost(typeof(LocalService));
 
+            ServiceSecurityAuditBehavior newAuditBehavior = new ServiceSecurityAuditBehavior();
+            host.Description.Behaviors.Remove<ServiceSecurityAuditBehavior>();
+            host.Description.Behaviors.Add(newAuditBehavior);
 
             host.AddServiceEndpoint(typeof(ILocalService), binding, clientAddress);
 

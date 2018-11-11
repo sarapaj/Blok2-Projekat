@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,14 +24,16 @@ namespace Client
 			try
 			{
 				temp = factory.Read();
-				Console.WriteLine("RemoveEntity() allowed.");
-			}
-			catch (Exception e)
+				Console.WriteLine("Read() allowed.");
+                Audit.ReadSuccess(WindowsIdentity.GetCurrent().ToString());
+            }
+            catch (Exception e)
 			{
-				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
-			}
+				Console.WriteLine("Error while trying to Read(). {0}", e.Message);
+                Audit.ReadFailed(WindowsIdentity.GetCurrent().ToString());
+            }
 
-			return temp;
+            return temp;
 		}
 
 		public double CountAvg(int region)
@@ -39,11 +42,11 @@ namespace Client
 			try
 			{
 				temp = factory.CountAvg(region);
-				Console.WriteLine("RemoveEntity() allowed.");
+				Console.WriteLine("CountAvg() allowed.");
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
+				Console.WriteLine("Error while trying to CountAvg(). {0}", e.Message);
 			}
 
 			return temp;
@@ -55,14 +58,16 @@ namespace Client
 			try
 			{
 				temp = factory.Update(region,month, value);
-				Console.WriteLine("RemoveEntity() allowed.");
+				Console.WriteLine("Update() allowed.");
+                Audit.UpdateSuccess(WindowsIdentity.GetCurrent().ToString());
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
-			}
+				Console.WriteLine("Error while trying to Update(). {0}", e.Message);
+                Audit.UpdateFailed(WindowsIdentity.GetCurrent().ToString());
+            }
 
-			return temp;
+            return temp;
 		}
 
 		public bool AddEntity(Entity entity)
@@ -71,11 +76,11 @@ namespace Client
 			try
 			{
 				temp = factory.AddEntity(entity);
-				Console.WriteLine("RemoveEntity() allowed.");
+				Console.WriteLine("AddEntity() allowed.");
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
+				Console.WriteLine("Error while trying to AddEntity(). {0}", e.Message);
 			}
 
 			return temp;

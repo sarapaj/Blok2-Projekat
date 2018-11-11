@@ -29,15 +29,15 @@ namespace Server
             Console.WriteLine("Press <enter> to stop service...");
 			DataIO data = new DataIO();
 
-			//Serijalizacija liste
-			//List<Entity> lista = new List<Entity>(){
-			//new Entity(1,1,"Novi Sad",DateTime.Now,3434),
-			//new Entity(2,2,"Novi Sad",DateTime.Now,3489),
-			//new Entity(3,3,"Novi Sad",DateTime.Now,4645)
-			//};
-			//data.SerializeObject<List<Entity>>(lista, "db.xml");
+            //Serijalizacija liste
+            List<Entity> lista = new List<Entity>(){
+            new Entity(1,1,"Novi Sad",DateTime.Now,3434),
+            new Entity(2,2,"Novi Sad",DateTime.Now,3489),
+            new Entity(3,3,"Novi Sad",DateTime.Now,4645)
+            };
+            data.SerializeObject<List<Entity>>(lista, "db.xml");
 
-			Console.ReadLine();
+            Console.ReadLine();
             host.Close();
         }
 	}

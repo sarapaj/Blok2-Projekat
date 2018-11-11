@@ -32,7 +32,6 @@ namespace Client
 					Console.WriteLine("Potrosnja:" + item.Consumption);
 					Console.WriteLine();
 				}
-
 			
 			}
 
