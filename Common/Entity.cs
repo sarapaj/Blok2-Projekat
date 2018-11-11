@@ -15,8 +15,8 @@ namespace Common
 		public DateTime Date { get; set; }
 		public int Consumption { get; set;  }
 
-		public Entity()
-		{}
+		public Entity() {}
+
 		public Entity(int id, int region, string city, DateTime date, int consumption)
 		{
 			this.Id = id;

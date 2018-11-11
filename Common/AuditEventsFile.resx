@@ -117,11 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddFailed" xml:space="preserve">
+    <value>Adding entity by user {0} failed</value>
+  </data>
+  <data name="AddSuccess" xml:space="preserve">
+    <value>Adding entity by user {0} successful</value>
+  </data>
+  <data name="CountFailed" xml:space="preserve">
+    <value>Count average consumption  by user {0}  failed</value>
+  </data>
+  <data name="CountSuccess" xml:space="preserve">
+    <value>Count average consumption by user {0} successful</value>
+  </data>
   <data name="ReadFailed" xml:space="preserve">
     <value>Read by user {0} failed</value>
   </data>
   <data name="ReadSuccess" xml:space="preserve">
     <value>Read by user {0} successful</value>
+  </data>
+  <data name="RemoveFailed" xml:space="preserve">
+    <value>Remove entity by user {0} failed</value>
+  </data>
+  <data name="RemoveSuccess" xml:space="preserve">
+    <value>Remove entity by user {0} successful</value>
   </data>
   <data name="UpdateFailed" xml:space="preserve">
     <value>Updating by user {0} failed</value>

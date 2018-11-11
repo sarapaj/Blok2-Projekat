@@ -17,13 +17,3 @@ C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Server\bin\Debug\S
 C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Server\bin\Debug\Common.dll
 C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Server\bin\Debug\Common.pdb
 C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Server\obj\Debug\MainServer.csproj.CopyComplete
-C:\Users\SARA\Desktop\Blok2-Projekat\Server\bin\Debug\Server.exe.config
-C:\Users\SARA\Desktop\Blok2-Projekat\Server\bin\Debug\Server.exe
-C:\Users\SARA\Desktop\Blok2-Projekat\Server\bin\Debug\Server.pdb
-C:\Users\SARA\Desktop\Blok2-Projekat\Server\bin\Debug\Common.dll
-C:\Users\SARA\Desktop\Blok2-Projekat\Server\bin\Debug\Common.pdb
-C:\Users\SARA\Desktop\Blok2-Projekat\Server\obj\Debug\MainServer.csprojAssemblyReference.cache
-C:\Users\SARA\Desktop\Blok2-Projekat\Server\obj\Debug\MainServer.csproj.CoreCompileInputs.cache
-C:\Users\SARA\Desktop\Blok2-Projekat\Server\obj\Debug\MainServer.csproj.CopyComplete
-C:\Users\SARA\Desktop\Blok2-Projekat\Server\obj\Debug\Server.exe
-C:\Users\SARA\Desktop\Blok2-Projekat\Server\obj\Debug\Server.pdb

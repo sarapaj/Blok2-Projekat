@@ -61,6 +61,42 @@ namespace Common {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adding entity by user {0} failed.
+        /// </summary>
+        internal static string AddFailed {
+            get {
+                return ResourceManager.GetString("AddFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adding entity by user {0} successful.
+        /// </summary>
+        internal static string AddSuccess {
+            get {
+                return ResourceManager.GetString("AddSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Count average consumption  by user {0}  failed.
+        /// </summary>
+        internal static string CountFailed {
+            get {
+                return ResourceManager.GetString("CountFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Count average consumption by user {0} successful.
+        /// </summary>
+        internal static string CountSuccess {
+            get {
+                return ResourceManager.GetString("CountSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Read by user {0} failed.
         /// </summary>
         internal static string ReadFailed {
@@ -75,6 +111,24 @@ namespace Common {
         internal static string ReadSuccess {
             get {
                 return ResourceManager.GetString("ReadSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove entity by user {0} failed.
+        /// </summary>
+        internal static string RemoveFailed {
+            get {
+                return ResourceManager.GetString("RemoveFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove entity by user {0} successful.
+        /// </summary>
+        internal static string RemoveSuccess {
+            get {
+                return ResourceManager.GetString("RemoveSuccess", resourceCulture);
             }
         }
         

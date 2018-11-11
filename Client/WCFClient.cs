@@ -43,21 +43,23 @@ namespace Client
 			{
 				temp = factory.CountAvg(region);
 				Console.WriteLine("CountAvg() allowed.");
-			}
-			catch (Exception e)
+                Audit.CountSuccess(WindowsIdentity.GetCurrent().ToString());
+            }
+            catch (Exception e)
 			{
 				Console.WriteLine("Error while trying to CountAvg(). {0}", e.Message);
-			}
+                Audit.CountFailed(WindowsIdentity.GetCurrent().ToString());
+            }
 
-			return temp;
+            return temp;
 		}
 
-		public bool Update(int region, int month, int value)
+		public bool Update(int region, int month, int value, int id)
 		{
 			bool temp = false;
 			try
 			{
-				temp = factory.Update(region,month, value);
+				temp = factory.Update(region,month, value, id);
 				Console.WriteLine("Update() allowed.");
                 Audit.UpdateSuccess(WindowsIdentity.GetCurrent().ToString());
 			}
@@ -77,13 +79,15 @@ namespace Client
 			{
 				temp = factory.AddEntity(entity);
 				Console.WriteLine("AddEntity() allowed.");
-			}
-			catch (Exception e)
+                Audit.AddSuccess(WindowsIdentity.GetCurrent().ToString());
+            }
+            catch (Exception e)
 			{
 				Console.WriteLine("Error while trying to AddEntity(). {0}", e.Message);
-			}
+                Audit.AddFailed(WindowsIdentity.GetCurrent().ToString());
+            }
 
-			return temp;
+            return temp;
 		}
 
 		public bool RemoveEntity(Entity entity)
@@ -93,13 +97,15 @@ namespace Client
 			{
 				temp = factory.RemoveEntity(entity);
 				Console.WriteLine("RemoveEntity() allowed.");
-			}
-			catch (Exception e)
+                Audit.RemoveSuccess(WindowsIdentity.GetCurrent().ToString());
+            }
+            catch (Exception e)
 			{
 				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
-			}
+                Audit.RemoveFailed(WindowsIdentity.GetCurrent().ToString());
+            }
 
-			return temp;
+            return temp;
 		}
 	}
 }
