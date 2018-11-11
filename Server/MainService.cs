@@ -27,9 +27,19 @@ namespace Server
 			return ret;
 		}
 
-		public void Read(string username, string fileName)
-        {
-            throw new NotImplementedException();
-        }
-    }
+		public void UpdateDB(List<Entity> lista, int region1, int region2)
+		{
+			List<Entity> tempList = data.DeSerializeObject<List<Entity>>("db.xml");
+
+			tempList.RemoveAll(x => x.Region == region1);
+			tempList.RemoveAll(x => x.Region == region2);
+
+			foreach (var item in lista)
+			{
+				tempList.Add(item);
+			}
+
+			data.SerializeObject(tempList, "db.xml");
+		}
+	}
 }

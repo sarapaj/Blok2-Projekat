@@ -15,7 +15,7 @@ namespace Server
 		static void Main(string[] args)
 		{
             NetTcpBinding binding = new NetTcpBinding();
-            string address = "net.tcp://localhost:9001/MainService";
+            string address = "net.tcp://localhost:9009/MainService";
 
             ServiceHost host = new ServiceHost(typeof(MainService));
             host.AddServiceEndpoint(typeof(IMainService), binding, address);

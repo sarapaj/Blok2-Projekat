@@ -10,11 +10,13 @@ namespace Common
     [ServiceContract]
 	public interface IMainService
 	{
-        [OperationContract]
-        void Read(string username, string fileName);
 
 		[OperationContract]
 		List<Entity> InitializeList(int region1, int region2);
+
+		[OperationContract]
+		void UpdateDB(List<Entity> lista, int region1, int region2);
+
 
 	}
 }

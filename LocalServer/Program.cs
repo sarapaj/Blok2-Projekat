@@ -10,15 +10,15 @@ using System.Diagnostics;
 
 namespace LocalServer
 {
+
 	class Program
 	{
 		public static List<Entity> MyEntities = new List<Entity>();
-
 		static void Main(string[] args)
 		{
-            // communication with main server
-            NetTcpBinding serverBinding = new NetTcpBinding();
-            string serverAddress = "net.tcp://localhost:9001/MainService";
+			// communication with main server
+			NetTcpBinding serverBinding = new NetTcpBinding();
+            string serverAddress = "net.tcp://localhost:9009/MainService";
 			int region1=0, region2=0;
 			string r1 ="", r2="";
 			do
@@ -30,6 +30,9 @@ namespace LocalServer
 			}
 			while (!Int32.TryParse(r1, out region1) && !Int32.TryParse(r2, out region2));
 
+			LocalService m = new LocalService();
+			Listener l = new Listener(region1, region2);
+			l.Subscribe();
 
 			using (WCFLocalServer proxy = new WCFLocalServer(serverBinding, serverAddress))
             {
@@ -38,7 +41,7 @@ namespace LocalServer
 
             // communication with client
             NetTcpBinding binding = new NetTcpBinding();
-            string clientAddress = "net.tcp://localhost:9000/LocalService";
+            string clientAddress = "net.tcp://localhost:9008/LocalService";
 			binding.Security.Mode = SecurityMode.Transport;
 
 			binding.Security.Transport.ProtectionLevel = System.Net.Security.ProtectionLevel.EncryptAndSign;
@@ -61,5 +64,33 @@ namespace LocalServer
 
             host.Close();
         }
+
+		public class Listener
+		{
+			int r1 { get; set; }
+			int r2 { get; set; }
+
+			public Listener(int r1, int r2)
+			{
+				this.r1 = r1;
+				this.r2 = r2;
+			}
+			public void Subscribe()
+			{
+				LocalService.Tick += new LocalService.TickHandler(HeardIt);
+			}
+			private void HeardIt(LocalService s, EventArgs e)
+			{
+				System.Console.WriteLine("HEARD IT");
+				NetTcpBinding serverBinding = new NetTcpBinding();
+				string serverAddress = "net.tcp://localhost:9009/MainService";
+
+				using (WCFLocalServer proxy = new WCFLocalServer(serverBinding, serverAddress))
+				{
+					proxy.UpdateDB(MyEntities, r1,r2);
+				}
+			}
+
+		}
 	}
 }
