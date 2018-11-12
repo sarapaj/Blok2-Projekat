@@ -9,3 +9,11 @@ C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Common\bin\Debug\C
 C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Common\obj\Debug\Common.dll
 C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Common\obj\Debug\Common.pdb
+C:\Users\SARA\Desktop\Blok2-Projekat\Common\bin\Debug\Common.dll
+C:\Users\SARA\Desktop\Blok2-Projekat\Common\bin\Debug\Common.pdb
+C:\Users\SARA\Desktop\Blok2-Projekat\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\SARA\Desktop\Blok2-Projekat\Common\obj\Debug\Common.AuditEventsFile.resources
+C:\Users\SARA\Desktop\Blok2-Projekat\Common\obj\Debug\Common.csproj.GenerateResource.cache
+C:\Users\SARA\Desktop\Blok2-Projekat\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\SARA\Desktop\Blok2-Projekat\Common\obj\Debug\Common.dll
+C:\Users\SARA\Desktop\Blok2-Projekat\Common\obj\Debug\Common.pdb

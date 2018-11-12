@@ -22,18 +22,18 @@ namespace LocalServer
 		public delegate void TickHandler(LocalService m, EventArgs e);
 
 
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
-		public List<Entity> Read()
+        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
+        public List<Entity> Read()
 		{
 			return Program.MyEntities;
 		}
 
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
-		public double CountAvg(int region)
+        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
+        public double CountAvg(int region)
 		{
 			List<int> temp = new List<int>();
 
@@ -48,9 +48,9 @@ namespace LocalServer
 			return temp.Average();
 		}
 
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
-		public bool Update(int region, int month, int value, int id) // prosledjujemo redni broj meseca 1-12
+        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
+        public bool Update(int region, int month, int value, int id) // prosledjujemo redni broj meseca 1-12
 		{
 			foreach (var item in Program.MyEntities)
 			{
@@ -65,8 +65,8 @@ namespace LocalServer
 			return false;
 		}
 
-	//	[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		public bool AddEntity(Entity entity)
+        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+        public bool AddEntity(Entity entity)
 		{
 			if (!Program.MyEntities.Contains(entity))
 			{
@@ -78,8 +78,8 @@ namespace LocalServer
 			return false;
 		}
 
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		public bool RemoveEntity(Entity entity)
+        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+        public bool RemoveEntity(Entity entity)
 		{
 			if (!Program.MyEntities.Contains(entity))
 			{

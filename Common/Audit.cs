@@ -10,8 +10,10 @@ namespace Common
     public class Audit : IDisposable
     {
         private static EventLog newLog = null;
-        const string sourceName = "Common.Audit";
-        const string logName = "CustomLog";
+        //const string sourceName = "CustomLogSource";
+        //const string logName = "CustomLog";
+        const string sourceName = "System.ServiceModel 4.0.0.0";
+        const string logName = "Application";
         private static string message;
 
         static Audit()
