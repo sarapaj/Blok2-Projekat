@@ -13,7 +13,13 @@ namespace Common
         UpdateSuccess = 0,
         UpdateFailed = 1,
         ReadSuccess = 2, 
-        ReadFailed = 3
+        ReadFailed = 3,
+        CountSuccess = 4,
+        CountFailed = 5,
+        AddSuccess = 6,
+        AddFailed = 7,
+        RemoveSuccess = 8,
+        RemoveFailed = 9
     }
 
     public class AuditEvents
@@ -66,6 +72,54 @@ namespace Common
             get
             {
                 return ResourceMng.GetString(AuditEventTypes.ReadFailed.ToString());
+            }
+        }
+
+        public static string CountSuccess
+        {
+            get
+            {
+                return ResourceMng.GetString(AuditEventTypes.CountSuccess.ToString());
+            }
+        }
+
+        public static string CountFailed
+        {
+            get
+            {
+                return ResourceMng.GetString(AuditEventTypes.CountFailed.ToString());
+            }
+        }
+
+        public static string AddSuccess
+        {
+            get
+            {
+                return ResourceMng.GetString(AuditEventTypes.AddSuccess.ToString());
+            }
+        }
+
+        public static string AddFailed
+        {
+            get
+            {
+                return ResourceMng.GetString(AuditEventTypes.AddFailed.ToString());
+            }
+        }
+
+        public static string RemoveSuccess
+        {
+            get
+            {
+                return ResourceMng.GetString(AuditEventTypes.RemoveSuccess.ToString());
+            }
+        }
+
+        public static string RemoveFailed
+        {
+            get
+            {
+                return ResourceMng.GetString(AuditEventTypes.RemoveFailed.ToString());
             }
         }
     }

@@ -26,7 +26,7 @@ namespace Server
             host.Open();
 
             Console.WriteLine("SecurityService service is started.");
-            Console.WriteLine("Press <enter> to stop service...");
+            Console.WriteLine("Press <enter> to stop service.");
 			DataIO data = new DataIO();
 
             //Serijalizacija liste

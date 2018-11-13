@@ -41,7 +41,7 @@ namespace LocalServer
 
             // communication with client
             NetTcpBinding binding = new NetTcpBinding();
-            string clientAddress = "net.tcp://localhost:9008/LocalService";
+            string clientAddress = "net.tcp://localhost:9000/LocalService";
 			binding.Security.Mode = SecurityMode.Transport;
 
 			binding.Security.Transport.ProtectionLevel = System.Net.Security.ProtectionLevel.EncryptAndSign;
@@ -50,6 +50,12 @@ namespace LocalServer
 			ServiceHost host = new ServiceHost(typeof(LocalService));
 
             ServiceSecurityAuditBehavior newAuditBehavior = new ServiceSecurityAuditBehavior();
+
+            newAuditBehavior.AuditLogLocation = AuditLogLocation.Application;
+            newAuditBehavior.MessageAuthenticationAuditLevel = AuditLevel.Success;
+            newAuditBehavior.ServiceAuthorizationAuditLevel = AuditLevel.SuccessOrFailure;
+            newAuditBehavior.SuppressAuditFailure = false;
+
             host.Description.Behaviors.Remove<ServiceSecurityAuditBehavior>();
             host.Description.Behaviors.Add(newAuditBehavior);
 

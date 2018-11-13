@@ -26,10 +26,10 @@ namespace LocalServer
 		MyPrincipal principal = null;
 
 
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
-		public List<Entity> Read()
+        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
+        public List<Entity> Read()
 		{
 			if (principal == null)
 			{
@@ -48,10 +48,10 @@ namespace LocalServer
 		}
 		
 
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
-		public double CountAvg(int region)
+        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
+        public double CountAvg(int region)
 		{
 			if (principal == null)
 			{
@@ -79,9 +79,9 @@ namespace LocalServer
 			}
 		}
 
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
-		public bool Update(int region, int month, int value, int id) // prosledjujemo redni broj meseca 1-12
+        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+        [PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
+        public bool Update(int region, int month, int value, int id) // prosledjujemo redni broj meseca 1-12
 		{
 			if (principal == null)
 			{
@@ -109,8 +109,8 @@ namespace LocalServer
 			}
 		}
 
-	//	[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		public bool AddEntity(Entity entity)
+        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+        public bool AddEntity(Entity entity)
 		{
 
 			if (principal == null)
@@ -136,8 +136,8 @@ namespace LocalServer
 			}
 		}
 
-		//[PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-		public bool RemoveEntity(Entity entity)
+        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
+        public bool RemoveEntity(Entity entity)
 		{
 			if (principal == null)
 			{
