@@ -52,6 +52,7 @@
     <Compile Include="Entity.cs" />
     <Compile Include="ILocalService.cs" />
     <Compile Include="IMainService.cs" />
+    <Compile Include="MyPrincipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

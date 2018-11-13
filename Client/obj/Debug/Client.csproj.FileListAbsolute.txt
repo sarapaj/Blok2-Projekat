@@ -7,16 +7,8 @@ C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Client\obj\Debug\Client.csprojRe
 C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
 C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Client\obj\Debug\Client.exe
 C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\Client\obj\Debug\Client.pdb
-C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Client\bin\Debug\Client.exe.config
 C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Client\bin\Debug\Client.exe
-C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Client\bin\Debug\Client.pdb
 C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Client\bin\Debug\Common.dll
-C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Client\bin\Debug\Common.pdb
-C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Client\obj\Debug\Client.csprojAssemblyReference.cache
-C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
-C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Client\obj\Debug\Client.csproj.CopyComplete
-C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Client\obj\Debug\Client.exe
-C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Client\obj\Debug\Client.pdb
 C:\Users\SARA\Desktop\Blok2-Projekat\Client\bin\Debug\Client.exe.config
 C:\Users\SARA\Desktop\Blok2-Projekat\Client\bin\Debug\Client.exe
 C:\Users\SARA\Desktop\Blok2-Projekat\Client\bin\Debug\Client.pdb

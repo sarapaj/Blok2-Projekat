@@ -22,7 +22,7 @@ namespace Common
                 {
                     EventLog.CreateEventSource(sourceName, logName);
                 }
-                newLog = new EventLog(logName, Environment.MachineName, sourceName);
+              //  newLog = new EventLog(logName, Environment.MachineName, sourceName);
             }
             catch (Exception e)
             {
@@ -36,7 +36,7 @@ namespace Common
             if(newLog != null)
             {
                 message = String.Format(AuditEventsFile.UpdateSuccess, username);
-                newLog.WriteEntry(message);
+              //  newLog.WriteEntry(message);
             }
             else
             {
@@ -48,7 +48,7 @@ namespace Common
             if (newLog != null)
             {
                 message = String.Format(AuditEventsFile.UpdateFailed, username);
-                newLog.WriteEntry(message);
+              //  newLog.WriteEntry(message);
             }
             else
             {
@@ -61,7 +61,7 @@ namespace Common
             if (newLog != null)
             {
                 message = String.Format(AuditEventsFile.ReadSuccess, username);
-                newLog.WriteEntry(message);
+               // newLog.WriteEntry(message);
             }
             else
             {
@@ -73,7 +73,7 @@ namespace Common
             if (newLog != null)
             {
                 message = String.Format(AuditEventsFile.ReadFailed, username);
-                newLog.WriteEntry(message);
+               // newLog.WriteEntry(message);
             }
             else
             {
