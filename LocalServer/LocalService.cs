@@ -24,9 +24,9 @@ namespace LocalServer
 		public static EventArgs e = null;
 		public delegate void TickHandler(LocalService m, EventArgs e);
 		MyPrincipal principal = null;
-		private readonly object balanceLock = new object();
 
-		public List<Entity> Read()
+
+        public List<Entity> Read()
 		{
 			if (principal == null)
 			{
@@ -45,6 +45,7 @@ namespace LocalServer
 		}
 		
 
+        
         public double CountAvg(int region)
 		{
 			if (principal == null)
@@ -73,6 +74,7 @@ namespace LocalServer
 			}
 		}
 
+    
         public bool Update(int region, int month, int value, int id) // prosledjujemo redni broj meseca 1-12
 		{
 			if (principal == null)
@@ -82,20 +84,17 @@ namespace LocalServer
 
 			if (principal.IsInRole("Update"))
 			{
-				lock (balanceLock)
+				foreach (var item in Program.MyEntities)
 				{
-					foreach (var item in Program.MyEntities)
+					if (item.Region == region && item.Date.Month == month && item.Id == id)
 					{
-						if (item.Region == region && item.Date.Month == month && item.Id == id)
-						{
-							item.Consumption = value;
-							Tick?.Invoke(this, e);
-							return true;
-						}
+						item.Consumption = value;
+						Tick?.Invoke(this, e);
+						return true;
 					}
-
-					return false;
 				}
+
+				return false;
 			}
 			else
 			{
@@ -106,6 +105,7 @@ namespace LocalServer
 
         public bool AddEntity(Entity entity)
 		{
+
 			if (principal == null)
 			{
 				principal = new MyPrincipal((WindowsIdentity)Thread.CurrentPrincipal.Identity);
@@ -113,17 +113,14 @@ namespace LocalServer
 
 			if (principal.IsInRole("AddEntity"))
 			{
-				lock (balanceLock)
+				if (!Program.MyEntities.Contains(entity))
 				{
-					if (!Program.MyEntities.Contains(entity))
-					{
-						Program.MyEntities.Add(entity);
-						Tick?.Invoke(this, e);
-						return true;
-					}
-
-					return false;
+					Program.MyEntities.Add(entity);
+					Tick?.Invoke(this, e);
+					return true;
 				}
+
+				return false;
 			}
 			else
 			{
@@ -141,17 +138,14 @@ namespace LocalServer
 
 			if (principal.IsInRole("RemoveEntity"))
 			{
-				lock (balanceLock)
+				if (!Program.MyEntities.Contains(entity))
 				{
-					if (!Program.MyEntities.Contains(entity))
-					{
-						Program.MyEntities.Remove(entity);
-						Tick?.Invoke(this, e);
-						return true;
-					}
-
-					return false;
+					Program.MyEntities.Remove(entity);
+					Tick?.Invoke(this, e);
+					return true;
 				}
+
+				return false;
 			}
 			else
 			{

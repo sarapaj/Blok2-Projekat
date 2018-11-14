@@ -50,8 +50,8 @@ namespace LocalServer
 
 			ServiceHost host = new ServiceHost(typeof(LocalService));
 
+            // logger
             ServiceSecurityAuditBehavior newAuditBehavior = new ServiceSecurityAuditBehavior();
-
             newAuditBehavior.AuditLogLocation = AuditLogLocation.Application;
             newAuditBehavior.MessageAuthenticationAuditLevel = AuditLevel.Success;
             newAuditBehavior.ServiceAuthorizationAuditLevel = AuditLevel.SuccessOrFailure;

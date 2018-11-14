@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Common
@@ -34,122 +34,132 @@ namespace Common
             }
         }
 
-        public static void UpdateSuccess(string username)
+        public static void UpdateSuccess(WindowsIdentity winId)
         {
             if(newLog != null)
             {
+                string username = (winId.Name).Split('\\')[1];
                 message = String.Format(AuditEventsFile.UpdateSuccess, username);
-              //  newLog.WriteEntry(message);
+                newLog.WriteEntry(message);
             }
             else
             {
                 throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
             }
         }
-        public static void UpdateFailed(string username)
+        public static void UpdateFailed(WindowsIdentity winId)
         {
             if (newLog != null)
             {
+                string username = (winId.Name).Split('\\')[1];
                 message = String.Format(AuditEventsFile.UpdateFailed, username);
-              //  newLog.WriteEntry(message);
+                newLog.WriteEntry(message);
             }
             else
             {
-				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
-			}
-		}
+                throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+            }
+        }
 
-        public static void ReadSuccess(string username)
+        public static void ReadSuccess(WindowsIdentity winId)
         {
             if (newLog != null)
             {
+                string username = (winId.Name).Split('\\')[1];
                 message = String.Format(AuditEventsFile.ReadSuccess, username);
                 newLog.WriteEntry(message);
             }
             else
             {
-				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
-			}
-		}
-        public static void ReadFailed(string username)
+                throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+            }
+        }
+        public static void ReadFailed(WindowsIdentity winId)
         {
             if (newLog != null)
             {
+                string username = (winId.Name).Split('\\')[1];
                 message = String.Format(AuditEventsFile.ReadFailed, username);
                 newLog.WriteEntry(message);
             }
             else
             {
-				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
-			}
-		}
+                throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+            }
+        }
 
-        public static void CountSuccess(string username)
+        public static void CountSuccess(WindowsIdentity winId)
         {
             if (newLog != null)
             {
+                string username = (winId.Name).Split('\\')[1];
                 message = String.Format(AuditEventsFile.CountSuccess, username);
                 newLog.WriteEntry(message);
             }
             else
             {
-				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
-			}
-		}
-        public static void CountFailed(string username)
+                throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+            }
+        }
+        public static void CountFailed(WindowsIdentity winId)
         {
             if (newLog != null)
             {
+                string username = (winId.Name).Split('\\')[1];
                 message = String.Format(AuditEventsFile.CountFailed, username);
                 newLog.WriteEntry(message);
             }
             else
             {
-				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
-			}
-		}
+                throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+            }
+        }
 
-        public static void AddSuccess(string username)
+        public static void AddSuccess(WindowsIdentity winId)
         {
             if (newLog != null)
             {
+                string username = (winId.Name).Split('\\')[1];
                 message = String.Format(AuditEventsFile.AddSuccess, username);
                 newLog.WriteEntry(message);
             }
             else
             {
-				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
-			}
-		}
-        public static void AddFailed(string username)
+                throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+            }
+        }
+        public static void AddFailed(WindowsIdentity winId)
         {
             if (newLog != null)
             {
+                string username = (winId.Name).Split('\\')[1];
                 message = String.Format(AuditEventsFile.AddFailed, username);
                 newLog.WriteEntry(message);
             }
             else
             {
-				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
-			}
-		}
+                throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+            }
+        }
 
-        public static void RemoveSuccess(string username)
+        public static void RemoveSuccess(WindowsIdentity winId)
         {
             if (newLog != null)
             {
+                string username = (winId.Name).Split('\\')[1];
                 message = String.Format(AuditEventsFile.RemoveSuccess, username);
                 newLog.WriteEntry(message);
             }
             else
             {
-				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
-			}
-		}
-        public static void RemoveFailed(string username)
+                throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+            }
+        }
+        public static void RemoveFailed(WindowsIdentity winId)
         {
             if (newLog != null)
             {
+                string username = (winId.Name).Split('\\')[1];
                 message = String.Format(AuditEventsFile.RemoveFailed, username);
                 newLog.WriteEntry(message);
             }
