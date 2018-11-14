@@ -25,12 +25,12 @@ namespace Client
 			{
 				temp = factory.Read();
 				Console.WriteLine("Read() allowed.");
-               // Audit.ReadSuccess(WindowsIdentity.GetCurrent().ToString());
+                Audit.ReadSuccess(WindowsIdentity.GetCurrent().ToString());
             }
             catch (Exception e)
 			{
 				Console.WriteLine("Error while trying to Read(). {0}", e.Message);
-               // Audit.ReadFailed(WindowsIdentity.GetCurrent().ToString());
+                Audit.ReadFailed(WindowsIdentity.GetCurrent().ToString());
             }
 
             return temp;
@@ -59,6 +59,7 @@ namespace Client
 			bool temp = false;
 			try
 			{
+			
 				temp = factory.Update(region,month, value, id);
 				Console.WriteLine("Update() allowed.");
                 Audit.UpdateSuccess(WindowsIdentity.GetCurrent().ToString());

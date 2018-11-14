@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Common
@@ -24,7 +25,7 @@ namespace Common
                 {
                     EventLog.CreateEventSource(sourceName, logName);
                 }
-              //  newLog = new EventLog(logName, Environment.MachineName, sourceName);
+                newLog = new EventLog(logName, Environment.MachineName, sourceName);
             }
             catch (Exception e)
             {
@@ -42,7 +43,7 @@ namespace Common
             }
             else
             {
-                throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa {0} u event log", (int)AuditEventTypes.UpdateSuccess));
+                throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
             }
         }
         public static void UpdateFailed(string username)
@@ -54,34 +55,34 @@ namespace Common
             }
             else
             {
-                throw new ArgumentException(String.Format("Greska prilikom upisivanja eventa {0} u event log", (int)AuditEventTypes.UpdateFailed));
-            }
-        }
+				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+			}
+		}
 
         public static void ReadSuccess(string username)
         {
             if (newLog != null)
             {
                 message = String.Format(AuditEventsFile.ReadSuccess, username);
-               // newLog.WriteEntry(message);
+                newLog.WriteEntry(message);
             }
             else
             {
-                throw new ArgumentException(String.Format("Greska prilikom upisivanja eventa {0} u event log", (int)AuditEventTypes.ReadSuccess));
-            }
-        }
+				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+			}
+		}
         public static void ReadFailed(string username)
         {
             if (newLog != null)
             {
                 message = String.Format(AuditEventsFile.ReadFailed, username);
-               // newLog.WriteEntry(message);
+                newLog.WriteEntry(message);
             }
             else
             {
-                throw new ArgumentException(String.Format("Greska prilikom upisivanja eventa {0} u event log", (int)AuditEventTypes.ReadFailed));
-            }
-        }
+				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+			}
+		}
 
         public static void CountSuccess(string username)
         {
@@ -92,9 +93,9 @@ namespace Common
             }
             else
             {
-                throw new ArgumentException(String.Format("Greska prilikom upisivanja eventa {0} u event log", (int)AuditEventTypes.CountSuccess));
-            }
-        }
+				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+			}
+		}
         public static void CountFailed(string username)
         {
             if (newLog != null)
@@ -104,9 +105,9 @@ namespace Common
             }
             else
             {
-                throw new ArgumentException(String.Format("Greska prilikom upisivanja eventa {0} u event log", (int)AuditEventTypes.CountFailed));
-            }
-        }
+				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+			}
+		}
 
         public static void AddSuccess(string username)
         {
@@ -117,9 +118,9 @@ namespace Common
             }
             else
             {
-                throw new ArgumentException(String.Format("Greska prilikom upisivanja eventa {0} u event log", (int)AuditEventTypes.AddSuccess));
-            }
-        }
+				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+			}
+		}
         public static void AddFailed(string username)
         {
             if (newLog != null)
@@ -129,9 +130,9 @@ namespace Common
             }
             else
             {
-                throw new ArgumentException(String.Format("Greska prilikom upisivanja eventa {0} u event log", (int)AuditEventTypes.AddFailed));
-            }
-        }
+				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+			}
+		}
 
         public static void RemoveSuccess(string username)
         {
@@ -142,9 +143,9 @@ namespace Common
             }
             else
             {
-                throw new ArgumentException(String.Format("Greska prilikom upisivanja eventa {0} u event log", (int)AuditEventTypes.RemoveSuccess));
-            }
-        }
+				throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
+			}
+		}
         public static void RemoveFailed(string username)
         {
             if (newLog != null)
@@ -154,7 +155,7 @@ namespace Common
             }
             else
             {
-                throw new ArgumentException(String.Format("Greska prilikom upisivanja eventa {0} u event log", (int)AuditEventTypes.RemoveFailed));
+                throw new ArgumentException(String.Format("Greska prilikom upisivsanja eventa u event log"));
             }
         }
 

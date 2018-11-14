@@ -24,12 +24,9 @@ namespace LocalServer
 		public static EventArgs e = null;
 		public delegate void TickHandler(LocalService m, EventArgs e);
 		MyPrincipal principal = null;
+		private readonly object balanceLock = new object();
 
-
-        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-        [PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
-        [PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
-        public List<Entity> Read()
+		public List<Entity> Read()
 		{
 			if (principal == null)
 			{
@@ -48,9 +45,6 @@ namespace LocalServer
 		}
 		
 
-        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-        [PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
-        [PrincipalPermission(SecurityAction.Demand, Role = "Reader")]
         public double CountAvg(int region)
 		{
 			if (principal == null)
@@ -79,8 +73,6 @@ namespace LocalServer
 			}
 		}
 
-        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
-        [PrincipalPermission(SecurityAction.Demand, Role = "Writer")]
         public bool Update(int region, int month, int value, int id) // prosledjujemo redni broj meseca 1-12
 		{
 			if (principal == null)
@@ -90,17 +82,20 @@ namespace LocalServer
 
 			if (principal.IsInRole("Update"))
 			{
-				foreach (var item in Program.MyEntities)
+				lock (balanceLock)
 				{
-					if (item.Region == region && item.Date.Month == month && item.Id == id)
+					foreach (var item in Program.MyEntities)
 					{
-						item.Consumption = value;
-						Tick?.Invoke(this, e);
-						return true;
+						if (item.Region == region && item.Date.Month == month && item.Id == id)
+						{
+							item.Consumption = value;
+							Tick?.Invoke(this, e);
+							return true;
+						}
 					}
-				}
 
-				return false;
+					return false;
+				}
 			}
 			else
 			{
@@ -109,10 +104,8 @@ namespace LocalServer
 			}
 		}
 
-        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
         public bool AddEntity(Entity entity)
 		{
-
 			if (principal == null)
 			{
 				principal = new MyPrincipal((WindowsIdentity)Thread.CurrentPrincipal.Identity);
@@ -120,14 +113,17 @@ namespace LocalServer
 
 			if (principal.IsInRole("AddEntity"))
 			{
-				if (!Program.MyEntities.Contains(entity))
+				lock (balanceLock)
 				{
-					Program.MyEntities.Add(entity);
-					Tick?.Invoke(this, e);
-					return true;
-				}
+					if (!Program.MyEntities.Contains(entity))
+					{
+						Program.MyEntities.Add(entity);
+						Tick?.Invoke(this, e);
+						return true;
+					}
 
-				return false;
+					return false;
+				}
 			}
 			else
 			{
@@ -136,7 +132,6 @@ namespace LocalServer
 			}
 		}
 
-        [PrincipalPermission(SecurityAction.Demand, Role = "Admin")]
         public bool RemoveEntity(Entity entity)
 		{
 			if (principal == null)
@@ -146,14 +141,17 @@ namespace LocalServer
 
 			if (principal.IsInRole("RemoveEntity"))
 			{
-				if (!Program.MyEntities.Contains(entity))
+				lock (balanceLock)
 				{
-					Program.MyEntities.Remove(entity);
-					Tick?.Invoke(this, e);
-					return true;
-				}
+					if (!Program.MyEntities.Contains(entity))
+					{
+						Program.MyEntities.Remove(entity);
+						Tick?.Invoke(this, e);
+						return true;
+					}
 
-				return false;
+					return false;
+				}
 			}
 			else
 			{

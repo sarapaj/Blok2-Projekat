@@ -14,19 +14,33 @@ namespace Server
 	{
 		static void Main(string[] args)
 		{
-            NetTcpBinding binding = new NetTcpBinding();
-            string address = "net.tcp://localhost:9009/MainService";
+			//novi kod
+			ServiceHost host = null;
 
-            ServiceHost host = new ServiceHost(typeof(MainService));
-            host.AddServiceEndpoint(typeof(IMainService), binding, address);
+			host = new ServiceHost(typeof(MainService));
+			var binding = new NetTcpBinding();
+			binding.TransactionFlow = true;
+			host.AddServiceEndpoint(typeof(IMainService), binding, new Uri("net.tcp://localhost:9009/MainService"));
+			host.Description.Behaviors.Remove(typeof(ServiceDebugBehavior));
+			host.Description.Behaviors.Add(new ServiceDebugBehavior() { IncludeExceptionDetailInFaults = true });
+			host.Open();
+			Console.WriteLine("Server ready and waiting for requests.");
 
-            host.Description.Behaviors.Remove(typeof(ServiceDebugBehavior));
-            host.Description.Behaviors.Add(new ServiceDebugBehavior() { IncludeExceptionDetailInFaults = true });
+			///
+			//NetTcpBinding binding = new NetTcpBinding();
+   //         string address = "net.tcp://localhost:9009/MainService";
 
-            host.Open();
+   //         ServiceHost host = new ServiceHost(typeof(MainService));
+   //         host.AddServiceEndpoint(typeof(IMainService), binding, address);
 
-            Console.WriteLine("SecurityService service is started.");
-            Console.WriteLine("Press <enter> to stop service.");
+            //host.Description.Behaviors.Remove(typeof(ServiceDebugBehavior));
+            //host.Description.Behaviors.Add(new ServiceDebugBehavior() { IncludeExceptionDetailInFaults = true });
+
+           // host.Open();
+
+            //Console.WriteLine("SecurityService service is started.");
+            //Console.WriteLine("Press <enter> to stop service.");
+
 			DataIO data = new DataIO();
 
             //Serijalizacija liste
