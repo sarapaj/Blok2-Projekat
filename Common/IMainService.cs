@@ -17,6 +17,8 @@ namespace Common
 		[OperationContract]
 		void UpdateDB(List<Entity> lista, int region1, int region2);
 
+        [OperationContract]
+        void TestCommunication();
 
-	}
+    }
 }

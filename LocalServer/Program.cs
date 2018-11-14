@@ -7,6 +7,8 @@ using System.ServiceModel.Description;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
+using Manager;
 
 namespace LocalServer
 {
@@ -16,10 +18,17 @@ namespace LocalServer
 		public static List<Entity> MyEntities = new List<Entity>();
 		static void Main(string[] args)
 		{
-			// communication with main server
-			NetTcpBinding serverBinding = new NetTcpBinding();
-            string serverAddress = "net.tcp://localhost:9009/MainService";
-			int region1=0, region2=0;
+            //Ocekivani sertifikt centralne baze
+            string CDBcertCN = "CDBService"; 
+            // communication with main server
+            NetTcpBinding serverBinding = new NetTcpBinding();
+            serverBinding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
+            X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, CDBcertCN);
+
+            EndpointAddress serverAddress = new EndpointAddress(new Uri("net.tcp://localhost:9009/MainService"),
+                                      new X509CertificateEndpointIdentity(srvCert));
+
+            int region1=0, region2=0;
 			string r1 ="", r2="";
 			do
 			{
@@ -36,6 +45,7 @@ namespace LocalServer
 
 			using (WCFLocalServer proxy = new WCFLocalServer(serverBinding, serverAddress))
             {
+                //potreban Testconections()
 				MyEntities = proxy.InitializeList(region1, region2);
             }
 
@@ -88,10 +98,15 @@ namespace LocalServer
 			private void HeardIt(LocalService s, EventArgs e)
 			{
 				System.Console.WriteLine("HEARD IT");
-				NetTcpBinding serverBinding = new NetTcpBinding();
-				string serverAddress = "net.tcp://localhost:9009/MainService";
+                //Ocekivani sertifikt centralne baze
+                string CDBcertCN = "CDBservice";
+                X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, CDBcertCN);
+                NetTcpBinding serverBinding = new NetTcpBinding();
+                EndpointAddress serverAddress = new EndpointAddress(new Uri("net.tcp://localhost:9009/MainService"),
+                                      new X509CertificateEndpointIdentity(srvCert));
 
-				using (WCFLocalServer proxy = new WCFLocalServer(serverBinding, serverAddress))
+
+                using (WCFLocalServer proxy = new WCFLocalServer(serverBinding, serverAddress))
 				{
 					proxy.UpdateDB(MyEntities, r1,r2);
 				}
