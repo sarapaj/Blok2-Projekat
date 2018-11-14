@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.ServiceModel;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Client
@@ -25,12 +26,12 @@ namespace Client
 			{
 				temp = factory.Read();
 				Console.WriteLine("Read() allowed.");
-               // Audit.ReadSuccess(WindowsIdentity.GetCurrent().ToString());
+                Audit.ReadSuccess(WindowsIdentity.GetCurrent());
             }
             catch (Exception e)
 			{
 				Console.WriteLine("Error while trying to Read(). {0}", e.Message);
-               // Audit.ReadFailed(WindowsIdentity.GetCurrent().ToString());
+                Audit.ReadFailed(WindowsIdentity.GetCurrent());
             }
 
             return temp;
@@ -43,12 +44,12 @@ namespace Client
 			{
 				temp = factory.CountAvg(region);
 				Console.WriteLine("CountAvg() allowed.");
-                Audit.CountSuccess(WindowsIdentity.GetCurrent().ToString());
+                Audit.CountSuccess(WindowsIdentity.GetCurrent());
             }
             catch (Exception e)
 			{
 				Console.WriteLine("Error while trying to CountAvg(). {0}", e.Message);
-                Audit.CountFailed(WindowsIdentity.GetCurrent().ToString());
+                Audit.CountFailed(WindowsIdentity.GetCurrent());
             }
 
             return temp;
@@ -61,12 +62,12 @@ namespace Client
 			{
 				temp = factory.Update(region,month, value, id);
 				Console.WriteLine("Update() allowed.");
-                Audit.UpdateSuccess(WindowsIdentity.GetCurrent().ToString());
+                Audit.UpdateSuccess(WindowsIdentity.GetCurrent());
 			}
 			catch (Exception e)
 			{
 				Console.WriteLine("Error while trying to Update(). {0}", e.Message);
-                Audit.UpdateFailed(WindowsIdentity.GetCurrent().ToString());
+                Audit.UpdateFailed(WindowsIdentity.GetCurrent());
             }
 
             return temp;
@@ -79,12 +80,12 @@ namespace Client
 			{
 				temp = factory.AddEntity(entity);
 				Console.WriteLine("AddEntity() allowed.");
-                Audit.AddSuccess(WindowsIdentity.GetCurrent().ToString());
+                Audit.AddSuccess(WindowsIdentity.GetCurrent());
             }
             catch (Exception e)
 			{
 				Console.WriteLine("Error while trying to AddEntity(). {0}", e.Message);
-                Audit.AddFailed(WindowsIdentity.GetCurrent().ToString());
+                Audit.AddFailed(WindowsIdentity.GetCurrent());
             }
 
             return temp;
@@ -97,12 +98,12 @@ namespace Client
 			{
 				temp = factory.RemoveEntity(entity);
 				Console.WriteLine("RemoveEntity() allowed.");
-                Audit.RemoveSuccess(WindowsIdentity.GetCurrent().ToString());
+                Audit.RemoveSuccess(WindowsIdentity.GetCurrent());
             }
             catch (Exception e)
 			{
 				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
-                Audit.RemoveFailed(WindowsIdentity.GetCurrent().ToString());
+                Audit.RemoveFailed(WindowsIdentity.GetCurrent());
             }
 
             return temp;
