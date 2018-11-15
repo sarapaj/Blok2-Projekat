@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 using Manager;
+using System.IdentityModel.Tokens;
 
 namespace LocalServer
 {
@@ -43,10 +44,20 @@ namespace LocalServer
 			l.Subscribe();
 
 			using (WCFLocalServer proxy = new WCFLocalServer(serverBinding, serverAddress))
-            {
-                //potreban Testconections()
-				MyEntities = proxy.InitializeList(region1, region2);
-				Console.WriteLine("Procitao sam svoje liste");
+            {             
+                try
+                {
+                    proxy.TestCommunication();
+                    MyEntities = proxy.InitializeList(region1, region2);
+                    Console.WriteLine("Procitao sam svoje liste");
+                }
+                catch (SecurityTokenValidationException e)
+                {            
+                                   
+                    throw new Exception("aaa!");
+                   
+                }
+
             }
 
             // communication with client
