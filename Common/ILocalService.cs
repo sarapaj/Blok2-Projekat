@@ -23,6 +23,6 @@ namespace Common
 		bool AddEntity(Entity entity);
 
 		[OperationContract]
-		bool RemoveEntity(Entity entity);
+		bool RemoveEntity(int id);
 	}
 }

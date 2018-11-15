@@ -91,12 +91,12 @@ namespace Client
             return temp;
 		}
 
-		public bool RemoveEntity(Entity entity)
+		public bool RemoveEntity(int id)
 		{
 			bool temp = false;
 			try
 			{
-				temp = factory.RemoveEntity(entity);
+				temp = factory.RemoveEntity(id);
 				Console.WriteLine("RemoveEntity() allowed.");
                 Audit.RemoveSuccess(WindowsIdentity.GetCurrent());
             }

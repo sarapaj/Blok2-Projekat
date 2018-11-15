@@ -129,18 +129,25 @@ namespace LocalServer
 			}
 		}
 
-        public bool RemoveEntity(Entity entity)
+        public bool RemoveEntity(int id)
 		{
 			if (principal == null)
 			{
 				principal = new MyPrincipal((WindowsIdentity)Thread.CurrentPrincipal.Identity);
 			}
 
+			Entity temp = null;
 			if (principal.IsInRole("RemoveEntity"))
 			{
-				if (!Program.MyEntities.Contains(entity))
+				foreach (var ent in Program.MyEntities)
 				{
-					Program.MyEntities.Remove(entity);
+					if (ent.Id == id)
+						temp = ent;
+				}
+
+				if (temp != null)
+				{
+					Program.MyEntities.Remove(temp);
 					Tick?.Invoke(this, e);
 					return true;
 				}

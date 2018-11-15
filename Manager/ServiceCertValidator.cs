@@ -22,10 +22,6 @@ namespace Manager
 			{
 				throw new Exception("Certificate is not from the valid issuer.");
 			}
-			else
-			{
-				Console.WriteLine("Certificate {0} is valid", certificate.SubjectName);
-			}
 		}
 	}
 }
