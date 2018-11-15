@@ -113,7 +113,7 @@ namespace LocalServer
 
 			if (principal.IsInRole("AddEntity"))
 			{
-				if (!Program.MyEntities.Contains(entity))
+				if (!Program.MyEntities.Contains(entity) && Program.MyEntities.Find(x=> x.Id == entity.Id) == null)
 				{
 					Program.MyEntities.Add(entity);
 					Tick?.Invoke(this, e);

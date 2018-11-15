@@ -56,7 +56,7 @@ namespace LocalServer
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Error while trying to RemoveEntity(). {0}", e.Message);
+				Console.WriteLine("Error while trying to UpdateDB(). {0}", e.Message);
 			}
 		}
         public void TestCommunication()

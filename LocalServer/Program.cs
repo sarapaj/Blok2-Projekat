@@ -100,15 +100,17 @@ namespace LocalServer
 			{
 				System.Console.WriteLine("HEARD IT");
                 //Ocekivani sertifikt centralne baze
-                string CDBcertCN = "CDBservice";
+                string CDBcertCN = "CDBService";
                 X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, CDBcertCN);
                 NetTcpBinding serverBinding = new NetTcpBinding();
-                EndpointAddress serverAddress = new EndpointAddress(new Uri("net.tcp://localhost:9009/MainService"),
+				serverBinding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
+				EndpointAddress serverAddress = new EndpointAddress(new Uri("net.tcp://localhost:9009/MainService"),
                                       new X509CertificateEndpointIdentity(srvCert));
 
 
                 using (WCFLocalServer proxy = new WCFLocalServer(serverBinding, serverAddress))
 				{
+					proxy.TestCommunication();
 					proxy.UpdateDB(MyEntities, r1,r2);
 				}
 			}

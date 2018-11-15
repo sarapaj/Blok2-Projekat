@@ -100,17 +100,19 @@ namespace Client
 						}
 						break;
 					case "3":
+						Console.WriteLine("Unesite id");
+						string t1 = Console.ReadLine();
 						Console.WriteLine("Unesite region");
 						string t2 = Console.ReadLine();
 						Console.WriteLine("Unesite grad");
 						string t3 = Console.ReadLine();
 						Console.WriteLine("Unesite potrosnju");
 						string t4 = Console.ReadLine();
-						int i2, i4;
+						int i1, i2, i4;
+						Int32.TryParse(t1, out i1);
 						Int32.TryParse(t2, out i2);
 						Int32.TryParse(t4, out i4);
-						Console.WriteLine("id" + Entities.Count + 1 + "region: " + i2 + "grad: "+ t3 + "potrosnja: " + i4);
-						if (proxy.AddEntity(new Entity(Entities.Count+1, i2, t3, DateTime.Now, i4)))
+						if (proxy.AddEntity(new Entity(i1, i2, t3, DateTime.Now, i4)))
 						{
 							Console.WriteLine("Uspesno dodavanje");
 						}
