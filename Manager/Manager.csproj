@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="CertManager.cs" />
     <Compile Include="ClientCertValidoator.cs" />
-    <Compile Include="DigitalSignature.cs" />
     <Compile Include="Formatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceCertValidator.cs" />

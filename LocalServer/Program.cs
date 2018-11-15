@@ -22,7 +22,7 @@ namespace LocalServer
             // communication with main server
             NetTcpBinding serverBinding = new NetTcpBinding();
             serverBinding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
-            X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, CDBcertCN);
+            X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine, CDBcertCN);
 
             EndpointAddress serverAddress = new EndpointAddress(new Uri("net.tcp://localhost:9009/MainService"),
                                       new X509CertificateEndpointIdentity(srvCert));
@@ -101,7 +101,7 @@ namespace LocalServer
 				System.Console.WriteLine("HEARD IT");
                 //Ocekivani sertifikt centralne baze
                 string CDBcertCN = "CDBService";
-                X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.My, StoreLocation.LocalMachine, CDBcertCN);
+                X509Certificate2 srvCert = CertManager.GetCertificateFromStorage(StoreName.TrustedPeople, StoreLocation.LocalMachine, CDBcertCN);
                 NetTcpBinding serverBinding = new NetTcpBinding();
 				serverBinding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Certificate;
 				EndpointAddress serverAddress = new EndpointAddress(new Uri("net.tcp://localhost:9009/MainService"),
