@@ -16,6 +16,10 @@ namespace Manager
 			{
 				throw new Exception("Certificate is not self-issued.");
 			}
+			else
+			{
+				Console.WriteLine("Certificate {0} is self-issued", certificate.SubjectName);
+			}
 		}
 	}
 }

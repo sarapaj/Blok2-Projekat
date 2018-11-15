@@ -20,3 +20,5 @@ C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Server\obj\Debug\M
 C:\Users\Administrator\Documents\GitHub\Blok2-Projekat\Server\bin\Debug\Server.exe
 C:\Users\Administrator\Documents\GitHub\Blok2-Projekat\Server\bin\Debug\Common.dll
 C:\Users\Administrator\Documents\GitHub\Blok2-Projekat\Server\bin\Debug\Manager.dll
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Server\bin\Debug\Manager.dll
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Server\bin\Debug\Manager.pdb

@@ -11,3 +11,4 @@ C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Common\obj\Debug\C
 C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Common\obj\Debug\Common.dll
 C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Common\obj\Debug\Common.pdb
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\Common\obj\Debug\Common.csprojAssemblyReference.cache

@@ -35,7 +35,7 @@ namespace Client
 
 				if (principal.IsInRole("Read"))
 				{
-					while (true)
+					//while (true)
 					{
 
 						while (broj != "1" && broj != "2")
@@ -45,7 +45,7 @@ namespace Client
 							Console.WriteLine("2. Prikazi srednju vrednost potrosnje");
 							broj = Console.ReadLine();
 						}
-
+					
 						switch (broj)
 						{
 							case "1":
