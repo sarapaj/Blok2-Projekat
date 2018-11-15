@@ -45,7 +45,7 @@ namespace LocalServer
 
 			using (WCFLocalServer proxy = new WCFLocalServer(serverBinding, serverAddress))
             {
-                //potreban Testconections()
+				proxy.TestCommunication();
 				MyEntities = proxy.InitializeList(region1, region2);
 				Console.WriteLine("Procitao sam svoje liste");
             }
@@ -62,7 +62,7 @@ namespace LocalServer
 
             // logger
             ServiceSecurityAuditBehavior newAuditBehavior = new ServiceSecurityAuditBehavior();
-            newAuditBehavior.AuditLogLocation = AuditLogLocation.Application;
+			newAuditBehavior.AuditLogLocation = AuditLogLocation.Application;
             newAuditBehavior.MessageAuthenticationAuditLevel = AuditLevel.Success;
             newAuditBehavior.ServiceAuthorizationAuditLevel = AuditLevel.SuccessOrFailure;
             newAuditBehavior.SuppressAuditFailure = false;

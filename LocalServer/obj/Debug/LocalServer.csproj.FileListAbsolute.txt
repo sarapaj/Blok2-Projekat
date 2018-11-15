@@ -7,3 +7,15 @@ C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\LocalServer\obj\Debug\LocalServe
 C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\LocalServer\obj\Debug\LocalServer.csproj.CoreCompileInputs.cache
 C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\LocalServer\obj\Debug\LocalServer.exe
 C:\Users\Milica\Desktop\BLOK2\PROJEKAT\PROJEKAT\LocalServer\obj\Debug\LocalServer.pdb
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\LocalServer\bin\Debug\LocalServer.exe.config
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\LocalServer\bin\Debug\LocalServer.exe
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\LocalServer\bin\Debug\LocalServer.pdb
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\LocalServer\bin\Debug\Common.dll
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\LocalServer\bin\Debug\Manager.dll
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\LocalServer\bin\Debug\Common.pdb
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\LocalServer\bin\Debug\Manager.pdb
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\LocalServer\obj\Debug\LocalServer.csprojAssemblyReference.cache
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\LocalServer\obj\Debug\LocalServer.csproj.CoreCompileInputs.cache
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\LocalServer\obj\Debug\LocalServer.csproj.CopyComplete
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\LocalServer\obj\Debug\LocalServer.exe
+C:\Users\Milica\Desktop\Blok2-Projekat\sarapaj\Blok2-Projekat\LocalServer\obj\Debug\LocalServer.pdb
