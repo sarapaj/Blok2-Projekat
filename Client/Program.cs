@@ -38,12 +38,13 @@ namespace Client
 					while (true)
 					{
 
-						while (broj != "1" && broj != "2")
+						while (broj != "1" && broj != "2" && broj != "3")
 						{
 							Console.WriteLine("Odaberite operaciju");
 							Console.WriteLine("1. Prikazi informacije");
 							Console.WriteLine("2. Prikazi srednju vrednost potrosnje");
-							broj = Console.ReadLine();
+							Console.WriteLine("3. Neautorizovana");
+                            broj = Console.ReadLine();
 						}
 
 						switch (broj)
@@ -68,7 +69,11 @@ namespace Client
 								double count = proxy.CountAvg(region);
 								Console.WriteLine("Srednja vrednost godisnje potrosnje za region {0} je {1}", region, count);
 								break;
-						}
+                            case "3":
+
+                                proxy.RemoveEntity(new Entity());
+                                break;
+                        }
 					}
 				}
 			}

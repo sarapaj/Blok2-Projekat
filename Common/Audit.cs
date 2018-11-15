@@ -11,10 +11,10 @@ namespace Common
     public class Audit : IDisposable
     {
         private static EventLog newLog = null;
-        //const string sourceName = "CustomLogSource";
-        //const string logName = "CustomLog";
-        const string sourceName = "System.ServiceModel 4.0.0.0";
-        const string logName = "Application";
+        const string sourceName = "CustomLogSource";
+        const string logName = "CustomLog";
+        //const string sourceName = "System.ServiceModel 4.0.0.0";
+        //const string logName = "Application";
         private static string message;
 
         static Audit()
@@ -39,8 +39,8 @@ namespace Common
             if(newLog != null)
             {
                 string username = (winId.Name).Split('\\')[1];
-                message = String.Format(AuditEventsFile.UpdateSuccess, username);
-                newLog.WriteEntry(message);
+                message = String.Format("Update by {0} was successful", username);
+                newLog.WriteEntry(message,EventLogEntryType.SuccessAudit);
             }
             else
             {
@@ -52,8 +52,9 @@ namespace Common
             if (newLog != null)
             {
                 string username = (winId.Name).Split('\\')[1];
-                message = String.Format(AuditEventsFile.UpdateFailed, username);
-                newLog.WriteEntry(message);
+
+                message = String.Format("Update by {0} failed", username);
+                newLog.WriteEntry(message, EventLogEntryType.FailureAudit);
             }
             else
             {
@@ -66,8 +67,8 @@ namespace Common
             if (newLog != null)
             {
                 string username = (winId.Name).Split('\\')[1];
-                message = String.Format(AuditEventsFile.ReadSuccess, username);
-                newLog.WriteEntry(message);
+                message = String.Format("Read by {0} was successful", username);
+                newLog.WriteEntry(message, EventLogEntryType.SuccessAudit);
             }
             else
             {
@@ -79,8 +80,8 @@ namespace Common
             if (newLog != null)
             {
                 string username = (winId.Name).Split('\\')[1];
-                message = String.Format(AuditEventsFile.ReadFailed, username);
-                newLog.WriteEntry(message);
+                message = String.Format("Read by {0} failed", username);
+                newLog.WriteEntry(message, EventLogEntryType.FailureAudit);
             }
             else
             {
@@ -93,8 +94,8 @@ namespace Common
             if (newLog != null)
             {
                 string username = (winId.Name).Split('\\')[1];
-                message = String.Format(AuditEventsFile.CountSuccess, username);
-                newLog.WriteEntry(message);
+                message = String.Format("Count by {0} was successful", username);
+                newLog.WriteEntry(message, EventLogEntryType.SuccessAudit);
             }
             else
             {
@@ -106,8 +107,8 @@ namespace Common
             if (newLog != null)
             {
                 string username = (winId.Name).Split('\\')[1];
-                message = String.Format(AuditEventsFile.CountFailed, username);
-                newLog.WriteEntry(message);
+                message = String.Format("Count by {0} failed", username);
+                newLog.WriteEntry(message, EventLogEntryType.FailureAudit);
             }
             else
             {
@@ -120,8 +121,8 @@ namespace Common
             if (newLog != null)
             {
                 string username = (winId.Name).Split('\\')[1];
-                message = String.Format(AuditEventsFile.AddSuccess, username);
-                newLog.WriteEntry(message);
+                message = String.Format("Add entity by {0} was successful", username);
+                newLog.WriteEntry(message, EventLogEntryType.SuccessAudit);
             }
             else
             {
@@ -133,8 +134,8 @@ namespace Common
             if (newLog != null)
             {
                 string username = (winId.Name).Split('\\')[1];
-                message = String.Format(AuditEventsFile.AddFailed, username);
-                newLog.WriteEntry(message);
+                message = String.Format("Add entity by {0} failed", username);
+                newLog.WriteEntry(message, EventLogEntryType.FailureAudit);
             }
             else
             {
@@ -147,8 +148,8 @@ namespace Common
             if (newLog != null)
             {
                 string username = (winId.Name).Split('\\')[1];
-                message = String.Format(AuditEventsFile.RemoveSuccess, username);
-                newLog.WriteEntry(message);
+                message = String.Format("Remove entity by {0} was successful", username);
+                newLog.WriteEntry(message, EventLogEntryType.SuccessAudit);
             }
             else
             {
@@ -160,8 +161,8 @@ namespace Common
             if (newLog != null)
             {
                 string username = (winId.Name).Split('\\')[1];
-                message = String.Format(AuditEventsFile.RemoveFailed, username);
-                newLog.WriteEntry(message);
+                message = String.Format("Remove entity by {0} failed", username);
+                newLog.WriteEntry(message, EventLogEntryType.FailureAudit);
             }
             else
             {

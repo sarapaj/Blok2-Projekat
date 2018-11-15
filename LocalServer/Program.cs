@@ -51,14 +51,14 @@ namespace LocalServer
 			ServiceHost host = new ServiceHost(typeof(LocalService));
 
             // logger
-            ServiceSecurityAuditBehavior newAuditBehavior = new ServiceSecurityAuditBehavior();
-            newAuditBehavior.AuditLogLocation = AuditLogLocation.Application;
-            newAuditBehavior.MessageAuthenticationAuditLevel = AuditLevel.Success;
-            newAuditBehavior.ServiceAuthorizationAuditLevel = AuditLevel.SuccessOrFailure;
-            newAuditBehavior.SuppressAuditFailure = false;
+            //ServiceSecurityAuditBehavior newAuditBehavior = new ServiceSecurityAuditBehavior();
+            //newAuditBehavior.AuditLogLocation = AuditLogLocation.Application;
+            //newAuditBehavior.MessageAuthenticationAuditLevel = AuditLevel.Success;
+            //newAuditBehavior.ServiceAuthorizationAuditLevel = AuditLevel.SuccessOrFailure;
+            //newAuditBehavior.SuppressAuditFailure = false;
 
-            host.Description.Behaviors.Remove<ServiceSecurityAuditBehavior>();
-            host.Description.Behaviors.Add(newAuditBehavior);
+            //host.Description.Behaviors.Remove<ServiceSecurityAuditBehavior>();
+            //host.Description.Behaviors.Add(newAuditBehavior);
 
             host.AddServiceEndpoint(typeof(ILocalService), binding, clientAddress);
 
