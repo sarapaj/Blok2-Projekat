@@ -27,7 +27,12 @@ namespace Server
 			return ret;
 		}
 
-		public void UpdateDB(List<Entity> lista, int region1, int region2)
+        public void TestCommunication()
+        {
+            Console.WriteLine("Communication established.");
+        }
+
+        public void UpdateDB(List<Entity> lista, int region1, int region2)
 		{
 			List<Entity> tempList = data.DeSerializeObject<List<Entity>>("db.xml");
 
