@@ -30,16 +30,15 @@ namespace LocalServer
             int region1=0, region2=0;
 			string r1 ="", r2="";
 
-			do
-			{
-				Console.WriteLine("Unesite prvu regiju");
-				r1 = Console.ReadLine();
-				Console.WriteLine("Unesite drugu regiju");
-				r2 = Console.ReadLine();
-			}
-			while (!Int32.TryParse(r1, out region1) && !Int32.TryParse(r2, out region2));
+			Console.WriteLine("Unesite prvu regiju");
+			r1 = Console.ReadLine();
+			Console.WriteLine("Unesite drugu regiju");
+			r2 = Console.ReadLine();
 
-			LocalService m = new LocalService();
+            Int32.TryParse(r1, out region1);
+            Int32.TryParse(r2, out region2);
+
+            LocalService m = new LocalService();
 			Listener l = new Listener(region1, region2);
 			l.Subscribe();
 
@@ -59,16 +58,7 @@ namespace LocalServer
 			binding.Security.Transport.ClientCredentialType = TcpClientCredentialType.Windows;
 
 			ServiceHost host = new ServiceHost(typeof(LocalService));
-
-            // logger
-            //ServiceSecurityAuditBehavior newAuditBehavior = new ServiceSecurityAuditBehavior();
-            //newAuditBehavior.AuditLogLocation = AuditLogLocation.Application;
-            //newAuditBehavior.MessageAuthenticationAuditLevel = AuditLevel.Success;
-            //newAuditBehavior.ServiceAuthorizationAuditLevel = AuditLevel.SuccessOrFailure;
-            //newAuditBehavior.SuppressAuditFailure = false;
-
-            //host.Description.Behaviors.Remove<ServiceSecurityAuditBehavior>();
-            //host.Description.Behaviors.Add(newAuditBehavior);
+            
 
             host.AddServiceEndpoint(typeof(ILocalService), binding, clientAddress);
 
